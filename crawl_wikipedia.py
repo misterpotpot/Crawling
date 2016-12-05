@@ -101,9 +101,14 @@ def crawling(conn, liste_urls, url):
 
 		title = href[30:]
 		url2 = "https://fr.wikipedia.org/w/index.php?title=" + title + "&action=info"
-		req2 = urllib2.urlopen(url2)
-		body2 = req2.read()
+		try:
+			req2 = urllib2.urlopen(url2)
+		except:
+			print href
+			print "Echec de l'import : wikipedia ne donne pas la page info"
+			return liste_urls, 1
 
+		body2 = req2.read()
 		p1 = body2.find("""Taille de la page (en octets)</td><td>""") + 38
 		p2 = body2[p1:].find("<") + p1
 		taille = body2[p1:p2]
