@@ -8,8 +8,6 @@ from datetime import datetime
 ssl._create_default_https_context = ssl._create_unverified_context
 
 
-
-
 def check_charmap(chaine):
 	result = chaine.replace("&#039;", "'")
 	return result

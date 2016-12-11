@@ -9,7 +9,6 @@ from fonctionsCrawler import *
 ssl._create_default_https_context = ssl._create_unverified_context
 
 
-
 class Log():
 	"""Classe définissant le log à la bdd. C'est la classe parent de crawler. Elle contient
 	- table
@@ -75,11 +74,11 @@ class Log():
 
 class Crawler(Log): 
 	"""Classe définissant le crawler. C'est la classe fille de Log et classe parent de Wikipedia. Elle contient
-	- nb_crawl
-	- echecs
 	- table
 	- conn
-	- liste_urls """
+	- liste_urls 
+	- nb_crawl
+	- echecs """
 
 
 	def __init__(self, table, db="../zapking.db", nb_crawl=100): 
@@ -103,10 +102,6 @@ class Crawler(Log):
 		print "\n\nCrawling termine !\nTaux d'import = ", taux_import, " %"
 
 
-	def crawling(self):
-		pass;
-
-
 	def set_url(self):
 		url = ""
 		while 1:
@@ -123,10 +118,13 @@ class Crawler(Log):
 
 
 
-
-
 class Wikipedia(Crawler):
-	"""Classe défininssant le crawling des Urls de wikipedia. Classe fille de Crawler """
+	"""Classe défininssant le crawling des Urls de wikipedia. Classe fille de Crawler. Elle contient
+	- table
+	- conn
+	- liste_urls
+	- nb_crawl
+	- echecs """
 
 
 	def __init__(self, t="urls_wikipedia", d="../zapking.db", n=100):

@@ -5,9 +5,7 @@ from time import sleep
 from fonctionsCrawler import *
 
 
-
-Condition = True
-while Condition == True:
+while 1:
 	print "\n\n************************"
 	print "* Crawling - Wikipedia *"
 	print "************************"
@@ -66,6 +64,6 @@ while Condition == True:
 		print "\n\nBot pour recuperer et matcher les categories de wikipedia \n"
 		get_categories_wikipedia()
 	elif mode == "quit":
-		Condition = False
+		break
 	else:
 		print "\n\nErreur, ce mode n'est pas reconnu. Reessayez !"
